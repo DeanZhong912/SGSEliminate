@@ -10,7 +10,7 @@ from heapq import nlargest
 #SkillPath1 = './skill1.txt'
 #SkillPath2 = './skill2.txt'
 #VictoryPath = './victory.txt'
-TcPath="./台词/txt"
+TcPath="./台词.txt"
 
 # 过筛法
 frequentWords = {'为','的','以','之','我','你','他','而','一','又','了','不','也','其','已','如','在','此','无','有','得','何','可'}
