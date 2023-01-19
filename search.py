@@ -65,7 +65,7 @@ print(Question)
 #SkillPath1 = './skill1.txt'
 #SkillPath2 = './skill2.txt'
 #VictoryPath = './victory.txt'
-TcPath="./台词/txt"
+TcPath="./台词.txt"
 
 def run(Question,Path):
     # 得到问题的双字笛卡尔组合
