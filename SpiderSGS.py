@@ -30,15 +30,27 @@ def getSoup(name):
     soup = BeautifulSoup(html,'lxml')
     return soup
 
+#<div class="flex-container col-direction equal-divide" style="gap: 10px;"></div>
+
+
 # 爬取单页台词
 def getTaiCiFromUrl(soup):
+    jntc = soup.find_all(name='div',attrs={"class":"flex-container col-direction equal-divide","style":"gap: 10px;"})
+    if jntc!=[]:
+        tc = jntc[1].find_all(name='div',attrs={"style":"align-self: center;"})
+        
     templst = soup.find_all(name='div',attrs={"style":"align-self: center;"})
+#    templst= templst + tc
+    
     taici = []
     for i in templst:
         if i.find_all(name='span',attrs={"class":"bikit-audio"})!=[]:
             tcs = str(i.text).split('/')
             taici.extend(tcs)
-
+    for t in tc:
+        tcs =str(t.text).split('/')
+        taici.extend(tcs)
+    
     taiciLst=list(set(taici))
     return taiciLst
 
@@ -67,9 +79,17 @@ def buildJson(name,Skills,Taici):
 
 # 保存json文件
 def SaveJson(dict_):
-    with open("AllInfo.json", "a", encoding='utf-8') as f:
+    with open("AllInfo.json", "w", encoding='utf-8') as f:
         # json.dump(dict_, f)  # 写为一行
         json.dump(dict_, f, indent=2, sort_keys=True, ensure_ascii=False)
+
+
+def getOne(name):
+    soup = getSoup(name)
+    taiciLst = getTaiCiFromUrl(soup)
+    skills = getSkillFromUrl(soup)
+    result = buildJson(name,skills,taiciLst)
+    print(result)
 
 # 保存台词到文本中
 def Save():
@@ -78,11 +98,11 @@ def Save():
     nmoutput = "./武将.txt"
     number = 0
     nameLst = getAllName()
-    WriteIn(nmoutput,nameLst)
+    #WriteIn(nmoutput,nameLst)
     jsonDict = {}
     for name in nameLst:
         number+=1
-        if number <=298:
+        if number <=0:
             continue
         soup = getSoup(name)
         taiciLst = getTaiCiFromUrl(soup)
@@ -90,7 +110,7 @@ def Save():
         result = buildJson(name,skills,taiciLst)
     
         WriteIn(tcoutput,taiciLst)
-        WriteIn(skoutput,skills)
+        #WriteIn(skoutput,skills)
         jsonDict[number]=result
         print(number)
         print(name)
@@ -100,3 +120,4 @@ def Save():
     
 
 Save()
+
