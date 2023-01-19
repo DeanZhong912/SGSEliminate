@@ -55,7 +55,7 @@ def MatchWord2Taici(words,taicis,Question):
 # 读取问题
 f = open("./res.txt", "r")
 input = f.readline()
-Question = list(input)
+Question = list(removeBD(input))
 del Question[-1]
 print("Question:")
 print(Question)
