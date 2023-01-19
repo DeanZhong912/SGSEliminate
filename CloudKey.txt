@@ -1,0 +1,3 @@
+SecretID
+SecretKey
+需要自己从腾讯云获取
