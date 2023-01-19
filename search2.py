@@ -6,10 +6,11 @@ from heapq import nlargest
 # TopK 找到台词集中包含题目字符最多个数的台词
 
 # 台词文本路径
-DeadPath = './dead.txt'
-SkillPath1 = './skill1.txt'
-SkillPath2 = './skill2.txt'
-VictoryPath = './victory.txt'
+#DeadPath = './dead.txt'
+#SkillPath1 = './skill1.txt'
+#SkillPath2 = './skill2.txt'
+#VictoryPath = './victory.txt'
+TcPath="./台词/txt"
 
 # 过筛法
 frequentWords = {'为','的','以','之','我','你','他','而','一','又','了','不','也','其','已','如','在','此','无','有','得','何','可'}
@@ -65,12 +66,13 @@ QuestionP = list(Qs-frequentWords)
 #print(QuestionP)
 
 # 运行搜索
-V = run(QuestionP,VictoryPath,2)
-D = run(QuestionP,DeadPath,2)
-S1 = run(QuestionP,SkillPath1,5)
-S2 = run(QuestionP,SkillPath2,5)
+#V = run(QuestionP,VictoryPath,2)
+#D = run(QuestionP,DeadPath,2)
+#S1 = run(QuestionP,SkillPath1,5)
+#S2 = run(QuestionP,SkillPath2,5)
 
 print("-----ALL RESULT-----")
-for bx in set(V+D+S1+S2):
-    print(bx)
+#for bx in set(V+D+S1+S2):
+#    print(bx)
+run(QuestionP,TcPath,5)
 
