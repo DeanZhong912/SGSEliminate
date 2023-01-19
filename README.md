@@ -24,7 +24,7 @@ python SpiderSGS.py
 python test.py
 ```
 
-3. 运行下面命令，得到截图的目标区域
+3. 运行下面命令，得到截图的目标区域，这里不同手机修改testOCR.py文件image_cut_save函数中的box的大小，调整截图区域
 ```
 python getInput.py
 ```
@@ -44,7 +44,7 @@ python search.py
 python search2.py
 ```
 ## 使用方法(武将)
-1,2,3，4步同上，运行下面命令，返回武将答案
+1,2,3,4步同上，第5步运行下面命令，返回武将答案
 ```
 python Wujiang.py
 ```
