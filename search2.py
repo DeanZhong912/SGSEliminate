@@ -35,15 +35,15 @@ def find_top_k(strings, charset, k):
     return nlargest(k, count, key=count.get)
 
 # 搜索台词
-def searchTaiCi(Question,TaiciDB):
-    # 返回前十个
-    result = find_top_k(TaiciDB,Question,2)
+def searchTaiCi(Question,TaiciDB,k):
+    # 每个集合返回三个
+    result = find_top_k(TaiciDB,Question,k)
     return result
 
 # 遍历台词库搜索
-def run(Question,path):
+def run(Question,path,k):
     TaiciDB = getTaiciDB(path)
-    result = searchTaiCi(Question,TaiciDB)
+    result = searchTaiCi(Question,TaiciDB,k)
     print(path+"----\nResult:")
     if result != []:
         print(result)
@@ -65,10 +65,10 @@ QuestionP = list(Qs-frequentWords)
 #print(QuestionP)
 
 # 运行搜索
-V = run(QuestionP,VictoryPath)
-D = run(QuestionP,DeadPath)
-S1 = run(QuestionP,SkillPath1)
-S2 = run(QuestionP,SkillPath2)
+V = run(QuestionP,VictoryPath,2)
+D = run(QuestionP,DeadPath,2)
+S1 = run(QuestionP,SkillPath1,5)
+S2 = run(QuestionP,SkillPath2,5)
 
 print("-----ALL RESULT-----")
 for bx in set(V+D+S1+S2):
