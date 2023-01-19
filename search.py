@@ -61,10 +61,11 @@ print("Question:")
 print(Question)
 
 # 台词文本路径
-DeadPath = './dead.txt'
-SkillPath1 = './skill1.txt'
-SkillPath2 = './skill2.txt'
-VictoryPath = './victory.txt'
+#DeadPath = './dead.txt'
+#SkillPath1 = './skill1.txt'
+#SkillPath2 = './skill2.txt'
+#VictoryPath = './victory.txt'
+TcPath="./台词/txt"
 
 def run(Question,Path):
     # 得到问题的双字笛卡尔组合
@@ -84,8 +85,9 @@ def run(Question,Path):
     else:
         print("No Matching in the "+Path)
     
-run(Question,VictoryPath)
-run(Question,DeadPath)
-run(Question,SkillPath1)
-run(Question,SkillPath2)
+#run(Question,VictoryPath)
+#run(Question,DeadPath)
+#run(Question,SkillPath1)
+#run(Question,SkillPath2)
+run(Question,TcPath)
 
